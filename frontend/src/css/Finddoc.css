@@ -1,0 +1,172 @@
+.finddoc-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #eef4ff, #e0e7ff);
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  color: #4a5568;
+  font-size: 1.1rem;
+}
+
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.doctor-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.doctor-card:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-photo {
+  position: relative;
+}
+
+.doctor-photo img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.availability {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.availability.available {
+  background: #38a169;
+}
+
+.availability.unavailable {
+  background: #e53e3e;
+}
+
+.doctor-info {
+  padding: 1.2rem;
+}
+
+.doctor-info h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #2d3748;
+  margin-bottom: 0.3rem;
+}
+
+.doctor-info .specialty {
+  color: #4c51bf;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.doctor-details {
+  margin-bottom: 1rem;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.detail .icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0.4rem;
+}
+
+.star {
+  color: #ecc94b;
+}
+
+.book-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s ease;
+  color: #fff;
+  cursor: pointer;
+}
+
+.book-btn.active {
+  background: #5a67d8;
+}
+
+.book-btn.active:hover {
+  background: #434190;
+}
+
+.book-btn.booked {
+  background: #718096;
+  cursor: not-allowed;
+}
+
+.book-btn.disabled {
+  background: #a0aec0;
+  cursor: not-allowed;
+}
+
+.no-doctors {
+  text-align: center;
+  padding: 2rem;
+  color: #718096;
+}
+
+.no-doctor-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem auto;
+  color: #a0aec0;
+}
+
+.support {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.support-btn {
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+  font-weight: bold;
+  color: #5a67d8;
+  cursor: pointer;
+}
+
+.support-btn:hover {
+  color: #434190;
+}
