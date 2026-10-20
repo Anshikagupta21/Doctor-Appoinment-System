@@ -30,7 +30,7 @@ useEffect(()=>{
 const ans=mydata.map((key)=>{
     return(
       <>
-         <Card style={{ width: '18rem', margin:"10px" }}>
+         <Card  key={key._id} style={{ width: '18rem', margin:"10px" }}>
       <Card.Img variant="top" src={key.image} height="270" />
       <Card.Body>
         <Card.Title>{key.doctorname}</Card.Title>
@@ -39,7 +39,16 @@ const ans=mydata.map((key)=>{
          <br />
          <span style={{color:"navy", fontWeight:"bold"}}> City : {key.city}</span> 
         </Card.Text>
-        <Button variant="primary" onClick={()=>{navigate(`/getappointment/${key._id}`)}}>Get Appointment</Button>
+        {/* <Button variant="primary" onClick={()=>{navigate(`/getappointment/${key._id}`)}}>Get Appointment</Button> */}
+        <Button
+  variant="primary"
+  onClick={() => {
+    console.log("Button clicked");
+    navigate(`/getappointment/${key._id}`);
+  }}
+>
+  Get Appointment
+</Button>
       </Card.Body>
     </Card>
       

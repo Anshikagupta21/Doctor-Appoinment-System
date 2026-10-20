@@ -6,7 +6,10 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import BackendUrl from "../Utils/BackendUrl";
+import { useNavigate } from "react-router-dom";
 const GetAppointment=()=>{
+  
+const navigate = useNavigate();
    const {id} = useParams();
    const [mydata, setMydata] = useState({});
    const [input, setInput] = useState({});
@@ -21,24 +24,27 @@ const GetAppointment=()=>{
  }, []);
 
  const handleInput=(e)=>{
-      e.preventDefault();
+      
       let name=e.target.name ;
       let value = e.target.value ;
       setInput(values=>({...values, [name]:value}));
       console.log(input);
  }
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-const handleSubmit=async(e)=>{
-       e.preventDefault();
-       let api = `${BackendUrl}/doctor/patientsave`;
-       try {
-          const response = await axios.post(api, {id:id, ...input});
-          alert("patient detail save!!!");
-       } catch (error) {
-          console.log(error);
-       }
-}
+  let api = `${BackendUrl}/doctor/patientsave`;
 
+  try {
+    await axios.post(api, { id: id, ...input });
+
+    alert("Appointment Booked Successfully");
+
+    navigate("/contact");   // 👈 redirect here
+  } catch (error) {
+    console.log(error);
+  }
+};
 
     return(
         <>      

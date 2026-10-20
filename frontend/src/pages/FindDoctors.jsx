@@ -23,7 +23,7 @@ const FindDoctors=()=>{
     const ans= mydata.map((key)=>{
         return(
             <>
-              <Card style={{ width: '18rem', margin:"10px" }}>
+      <Card style={{ width: '18rem', margin:"10px" }}>
       <Card.Img variant="top" src={key.image} height="270" />
       <Card.Body>
         <Card.Title>{key.doctorname}</Card.Title>

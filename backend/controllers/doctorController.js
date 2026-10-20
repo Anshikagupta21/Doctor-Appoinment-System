@@ -124,22 +124,21 @@
 //     getPateintDetail
 // }
 
-
-
 const DoctorModel = require("../models/doctorModel");
-const PatientModel = require("../models/patientModel"); // only if you have this model
-
-// ✅ Save Doctor with safe file handling
+const PatientModel = require("../models/patientModel");
+// Controller function
 const doctorSave = async (req, res) => {
   try {
-    // Debug incoming data
     console.log("Body:", req.body);
     console.log("File:", req.file);
 
     const { name, speciality, city, address, contact, email, password } = req.body;
 
-    // Safely handle req.file
-    const imagePath = req.file ? req.file.path : null;
+    if (!req.file) {
+      return res.status(400).json({ success: false, message: "Image file is required" });
+    }
+
+    const imagePath = req.file.path;
 
     const Doctor = await DoctorModel.create({
       doctorname: name,
@@ -149,20 +148,22 @@ const doctorSave = async (req, res) => {
       image: imagePath,
       contact,
       email,
-      password
+      password,
     });
 
     res.status(201).json({
       success: true,
       message: "Doctor saved successfully",
       fileUrl: imagePath,
-      doctor: Doctor
+      doctor: Doctor,
     });
   } catch (err) {
     console.error("Error in doctorSave:", err);
     res.status(500).json({ success: false, message: err.message });
   }
 };
+
+
 
 // ✅ Doctor Login
 const doctorLogin = async (req, res) => {
@@ -242,12 +243,29 @@ const patientSave = async (req, res) => {
     res.status(500).json({ msg: error.message });
   }
 };
-
+0
 // ✅ Get Patients by Doctor ID
 const getPateintDetail = async (req, res) => {
   const { id } = req.query;
   const patient = await PatientModel.find({ docid: id });
   res.status(200).json(patient);
+};
+
+
+
+
+
+
+
+
+
+const displayAppointment = async (req, res) => {
+  try {
+    const data = await PatientModel.find();
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
 };
 
 module.exports = {
@@ -259,5 +277,6 @@ module.exports = {
   doctorSearchBySpeciality,
   getdoctorInfo,
   patientSave,
-  getPateintDetail
+  getPateintDetail,
+  displayAppointment
 };

@@ -2,6 +2,7 @@
   min-height: 100vh;
   background: linear-gradient(to bottom right, #eef4ff, #e0e7ff);
   padding: 2rem;
+  overflow: hidden;
 }
 
 .header {

@@ -4,27 +4,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
+
+
+
 .header {
-  background: linear-gradient(135deg,#0073e6 0%, #0073e6 100%);
+  background: linear-gradient(135deg, #0073e6, #0073e6);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   max-width: 1400px;
-  margin: 0 auto;
-  min-height: 70px;
+  margin: auto;
+  flex-wrap: wrap; /* IMPORTANT */
 }
 
 /* Logo Styles */
@@ -81,6 +84,12 @@
   letter-spacing: 0.05em;
 }
 
+
+
+
+
+
+ 
 /* Navigation Styles */
 .navbar {
   background: transparent !important;
@@ -161,7 +170,7 @@
 
 .login {
   background: rgba(255, 255, 255, 0.1);
-  color: white;
+  color: black;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
 }
@@ -402,7 +411,41 @@ html {
 
 
 
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 
+  .logo {
+    width: 100%;
+  }
+
+  .navbar {
+    width: 100%;
+  }
+
+  .auth-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.navbar .nav {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .auth-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .auth-buttons button {
+    width: 100%;
+  }
+}
 
 
 

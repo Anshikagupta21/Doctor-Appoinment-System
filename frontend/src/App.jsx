@@ -5,12 +5,13 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 
 import FindDoctors from "./pages/FindDoctors";
-import { Contact } from "lucide-react";
+// import { Contact } from "lucide-react";
 import DoctroDashBoard from "./DoctorDashBoard";
 import PatientList from "./pages/PatientList";
 import SearchByCity from "./pages/SearchByCity";
 import SearchBySpecialization from "./pages/SearchBySpecialization";
-
+import GetAppointment from "./pages/GetAppointment";
+import Contact from "./pages/Contact";
 
 
 const App=()=>{
@@ -25,12 +26,14 @@ const App=()=>{
     <Route path="searchbycity" element={<SearchByCity/>}/> 
      <Route path="searchbyspeciality" element={<SearchBySpecialization/>}/>
     <Route path="contact" element={<Contact/>}/>
+    <Route path="/getappointment/:id" element={<GetAppointment />} />
+    <Route path="/contact" element={<Contact/>}/>
      </Route>
   </Routes>
   <Routes>
 
   <Route path="/doctordashboard" element={<DoctroDashBoard/>}>
-     <Route path="patientlist" element={<PatientList/>} />  
+   <Route path="patientlist" element={<PatientList/>} />  
             </Route>  
           </Routes>      
   </BrowserRouter>
